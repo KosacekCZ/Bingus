@@ -1,0 +1,81 @@
+package io.googlegiggers.Entities;
+
+public abstract class Entity {
+    private float x;
+    private float y;
+    private float width;
+    private float height;
+    private float scale;
+    private float speed;
+    private int health;
+    private int damage;
+    private String texture;
+    private boolean isDestroy;
+
+    public Entity(float x, float y, float width, float height, float scale, float speed , int health, int damage, String texture) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.scale = scale;
+        this.speed = speed;
+        this.health = health;
+        this.damage = damage;
+        this.texture = texture;
+        isDestroy = false;
+    }
+
+    public Entity(float x, float y, float width, float height, String texture) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.texture = texture;
+        isDestroy = false;
+    }
+
+    public abstract void update();
+
+    public abstract void onCollide();
+
+    public void Destroy() {
+        this.isDestroy = true;
+    }
+
+
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public float getWidth() {
+        return width;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public float getScale() {
+        return scale;
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public String getTexture() {
+        return texture;
+    }
+}
