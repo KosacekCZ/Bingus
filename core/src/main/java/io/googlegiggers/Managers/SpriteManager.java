@@ -2,7 +2,6 @@ package io.googlegiggers.Managers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import io.googlegiggers.Managers.TextureManager;
 
 import java.util.HashMap;
 
@@ -24,7 +23,10 @@ public class SpriteManager {
     private SpriteManager(){
         batch = new SpriteBatch();
         textures = new HashMap<>();
-        tm = TextureManager.getInstance();
+        }
+
+    public void draw(float x, float y, float w, float h, String textureName) {
+        batch.draw(textures.get(textureName), x, y, w, h);
     }
 
     public void begin() {
@@ -36,6 +38,10 @@ public class SpriteManager {
     }
 
     public void dispose() {
+        for (Texture t :  textures.values()) {
+            t.dispose();
+        }
+
         batch.dispose();
     }
 

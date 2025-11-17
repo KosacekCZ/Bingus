@@ -1,16 +1,16 @@
 package io.googlegiggers.Entities;
 
 public abstract class Entity {
-    private float x;
-    private float y;
-    private float width;
-    private float height;
-    private float scale;
-    private float speed;
-    private int health;
-    private int damage;
-    private String texture;
-    private boolean isDestroy;
+    protected float x;
+    protected float y;
+    protected float width;
+    protected float height;
+    protected float scale;
+    protected float speed;
+    protected int health;
+    protected int damage;
+    protected String texture;
+    protected boolean isDestroy;
 
     public Entity(float x, float y, float width, float height, float scale, float speed , int health, int damage, String texture) {
         this.x = x;
