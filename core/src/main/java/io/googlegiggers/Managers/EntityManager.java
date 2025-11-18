@@ -26,6 +26,7 @@ public class EntityManager {
 
     public void addPlayer(Player p) {
         this.player = p;
+        addEntity(p);
     }
 
     public Player getPlayer() {
@@ -33,18 +34,10 @@ public class EntityManager {
     }
 
     public void update() {
-        for (Entity e: entities) e.update();
-        player.update();
-        checkCollisions();
+        for (Entity e: entities) {
+            e.update();
 
-        System.out.println(entities.size());
-    }
-
-    public void checkCollisions() {
-        List<Entity> tempE = entities;
-        tempE.add(player);
-        for (Entity e: tempE) {
-            for (Entity e2: tempE) {
+            for (Entity e2: entities) {
                 if (!e.equals(e2)) {
                     if (e.getSprite().getBoundingRectangle().overlaps(e2.getSprite().getBoundingRectangle())) {
                         e.onCollide();
@@ -54,4 +47,5 @@ public class EntityManager {
             }
         }
     }
+
 }
