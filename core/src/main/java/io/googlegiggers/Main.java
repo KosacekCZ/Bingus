@@ -1,8 +1,8 @@
 package io.googlegiggers;
 
 import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
+import io.googlegiggers.Entities.Enemy;
 import io.googlegiggers.Entities.Player;
 import io.googlegiggers.Managers.EntityManager;
 import io.googlegiggers.Managers.SpriteManager;
@@ -19,7 +19,8 @@ public class Main extends ApplicationAdapter {
         sm = SpriteManager.getInstance();
         em = EntityManager.getInstance();
 
-        em.addEntity(new Player());
+        em.addPlayer(new Player(400, 400, 1, 100, 10, "amongas"));
+        em.addEntity(new Enemy(200, 200, 8, 100, 10,"mogus"));
         tm.loadTextures();
     }
 
@@ -29,7 +30,7 @@ public class Main extends ApplicationAdapter {
 
         sm.begin();
         em.update();
-        sm.draw(0, 0, 32, 32, "gigus");
+
         sm.end();
     }
 

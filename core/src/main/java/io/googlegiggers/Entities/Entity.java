@@ -1,5 +1,9 @@
 package io.googlegiggers.Entities;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import io.googlegiggers.Managers.EntityManager;
+import io.googlegiggers.Managers.SpriteManager;
+
 public abstract class Entity {
     protected float x;
     protected float y;
@@ -11,6 +15,10 @@ public abstract class Entity {
     protected int damage;
     protected String texture;
     protected boolean isDestroy;
+    protected Sprite sprite;
+
+    protected final SpriteManager sm;
+    protected final EntityManager em;
 
     public Entity(float x, float y, float width, float height, float scale, float speed , int health, int damage, String texture) {
         this.x = x;
@@ -23,6 +31,12 @@ public abstract class Entity {
         this.damage = damage;
         this.texture = texture;
         isDestroy = false;
+        this.sprite = new Sprite();
+        sprite.setPosition(x, y);
+        sprite.setSize(width, height);
+
+        sm = SpriteManager.getInstance();
+        em = EntityManager.getInstance();
     }
 
     public Entity(float x, float y, float width, float height, String texture) {
@@ -32,6 +46,13 @@ public abstract class Entity {
         this.height = height;
         this.texture = texture;
         isDestroy = false;
+        this.sprite = new Sprite();
+        sprite.setPosition(x, y);
+        sprite.setSize(width, height);
+        // TODO: sprite.setOrigin();
+
+        sm = SpriteManager.getInstance();
+        em = EntityManager.getInstance();
     }
 
     public abstract void update();
@@ -77,5 +98,9 @@ public abstract class Entity {
 
     public String getTexture() {
         return texture;
+    }
+
+    public Sprite getSprite() {
+        return sprite;
     }
 }
