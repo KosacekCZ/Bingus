@@ -15,10 +15,10 @@ public class Player extends Entity {
     public void update() {
         sm.draw(getX(), getY(), getWidth(), getHeight(), getTexture());
 
-        if (Gdx.input.isKeyPressed(Input.Keys.W)) this.x += speed;
-        if (Gdx.input.isKeyPressed(Input.Keys.S)) this.x -= speed;
-        if (Gdx.input.isKeyPressed(Input.Keys.A)) this.y -= speed;
-        if (Gdx.input.isKeyPressed(Input.Keys.D)) this.y += speed;
+        if (Gdx.input.isKeyPressed(Input.Keys.W)) this.y += speed;
+        if (Gdx.input.isKeyPressed(Input.Keys.S)) this.y -= speed;
+        if (Gdx.input.isKeyPressed(Input.Keys.A)) this.x -= speed;
+        if (Gdx.input.isKeyPressed(Input.Keys.D)) this.x += speed;
     }
 
     public void onCollide() {
