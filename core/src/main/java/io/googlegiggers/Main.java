@@ -19,7 +19,7 @@ public class Main extends ApplicationAdapter {
         sm = SpriteManager.getInstance();
         em = EntityManager.getInstance();
 
-        em.addPlayer(new Player(400, 400, 1, 100, 10, "amongas"));
+        em.addPlayer(new Player(400, 400, 10, 100, 10, "amongas"));
         em.addEntity(new Enemy(200, 200, 8, 100, 10,"mogus"));
         tm.loadTextures();
     }

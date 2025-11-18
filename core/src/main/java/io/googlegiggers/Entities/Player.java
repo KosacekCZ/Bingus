@@ -2,7 +2,6 @@ package io.googlegiggers.Entities;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import io.googlegiggers.Managers.SpriteManager;
 
 public class Player extends Entity {
 

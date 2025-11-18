@@ -1,8 +1,5 @@
 package io.googlegiggers.Entities;
 
-import io.googlegiggers.Managers.EntityManager;
-import io.googlegiggers.Managers.SpriteManager;
-
 public class Enemy extends Entity {
     public Enemy(float x, float y, float speed,  int health, int damage, String texture) {
         super(x, y, 32, 32, 1, speed, health, damage, texture);
