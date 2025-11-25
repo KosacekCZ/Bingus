@@ -14,14 +14,16 @@ public class EntityManager {
     }
 
     private Player player;
-    private List<Entity> entities;
+    private final List<Entity> entities;
+    private final List<Entity> buffer;
 
     public EntityManager() {
         entities = new ArrayList<>();
+        buffer = new ArrayList<>();
     }
 
     public void addEntity(Entity e) {
-        entities.add(e);
+        buffer.add(e);
     }
 
     public void addPlayer(Player p) {
@@ -40,12 +42,16 @@ public class EntityManager {
             for (Entity e2: entities) {
                 if (!e.equals(e2)) {
                     if (e.getSprite().getBoundingRectangle().overlaps(e2.getSprite().getBoundingRectangle())) {
-                        e.onCollide();
-                        e2.onCollide();
+                        e.onCollide(e2);
+                        e2.onCollide(e);
                     }
                 }
             }
         }
+
+        entities.removeIf(Entity::isDestroyed);
+        entities.addAll(buffer);
+        buffer.clear();
     }
 
 }
